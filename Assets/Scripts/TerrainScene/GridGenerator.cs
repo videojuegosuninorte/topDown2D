@@ -8,20 +8,18 @@ public class GridGenerator : MonoBehaviour
 {
 
     int[,] layout = new int[,] {
-    { 0,0,0,    0,  0,  0,  0 ,  0,  0,  0},
-    { 0,1,2,     1,  0,  0,  0 ,  1,  2,  0},
-    { 0,0, 0,    1,  1,  1,  1 ,  1,  0,  0},
-    { 0,0, 1,    1,  1,  0,  0 ,  0,  0,  0},
-    { 0,1, 0,    0,  1,  0,  0 ,  0,  0,  0},
-    { 0,1, 0,    0,  1,  1,  1 ,  2,  0,  0},
-    { 0,2, 0,    0,  0,  0,  0 ,  1,  1,  0},
-    { 0,0,0,    0,  0,  0,  0 ,  0,  0,  0},};
+    { 0,0,    0,  0,  0,  0 ,  0,  0},
+    { 1,1,    1,  0,  0,  0 ,  1,  1},
+    { 0, 0,    1,  1,  1,  1 ,  1,  0},
+    { 0, 1,    1,  1,  0,  0 ,  0,  0},
+    { 1, 0,    0,  1,  0,  0 ,  0,  0},
+    { 1, 0,    0,  1,  1,  1 ,  1,  0},
+    { 1, 0,    0,  0,  0,  0 ,  1,  1},};
     public Tilemap dirtTilemap;
     public Tilemap grassTilemap;
     public Tile initialPrefab;
     public Tile grassPrefab;
     public Tile dirtPrefab;
-    public Tile basePrefab;
     private int width;
     private int height;
 
@@ -39,11 +37,7 @@ public class GridGenerator : MonoBehaviour
             for (int j = 0; j < width; j++)
             {
                 Debug.Log("check on " + i + " " + j);
-                if (layout[i, j] == 2)
-                {
-                    grassTilemap.SetTile(new Vector3Int(i, j, 0), basePrefab);
-                }
-                else if (i == 0)
+                if (i == 0)
                 {
                     grassTilemap.SetTile(new Vector3Int(i, j, 0), initialPrefab);
                 } else { 
