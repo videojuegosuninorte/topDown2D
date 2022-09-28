@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 
 public class GridGenerator : MonoBehaviour
 {
-
+/*
     int[,] layout = new int[,] {
     { 0,0,    0,  0,  0,  0 ,  0,  0},
     { 1,1,    1,  0,  0,  0 ,  1,  1},
@@ -15,6 +15,15 @@ public class GridGenerator : MonoBehaviour
     { 1, 0,    0,  1,  0,  0 ,  0,  0},
     { 1, 0,    0,  1,  1,  1 ,  1,  0},
     { 1, 0,    0,  0,  0,  0 ,  1,  1},};
+*/
+
+    int[,] layout = new int[,] {
+    { 1,1,    1,  1,  1,  1 ,  1,  1},
+    { 1,0,    0,  0,  0,  0 ,  0,  1},
+    { 1,0,    0,  0,  0,  0 ,  0,  1},
+    { 1,0,    0,  0,  0,  0 ,  0,  1},
+    { 1,0,    0,  0,  0,  0 ,  0,  1},
+    { 1, 1,   1,  1,  1,  1 ,  1,  1},};
     public Tilemap dirtTilemap;
     public Tilemap grassTilemap;
     public Tile initialPrefab;
@@ -37,11 +46,8 @@ public class GridGenerator : MonoBehaviour
             for (int j = 0; j < width; j++)
             {
                 Debug.Log("check on " + i + " " + j);
-                if (i == 0)
-                {
-                    grassTilemap.SetTile(new Vector3Int(i, j, 0), initialPrefab);
-                } else { 
-                    if (layout[i,j] == 1)
+                
+                    if (layout[i,j] == 0)
                     {
                         Debug.Log("grass on "+ i+ " "+ j);
                         //Instantiate(grassPrefab, new Vector3(j, i, 0), Quaternion.identity);
@@ -52,7 +58,7 @@ public class GridGenerator : MonoBehaviour
                         //Instantiate(dirtPrefab, new Vector3(j, i, 0), Quaternion.identity);
                         dirtTilemap.SetTile(new Vector3Int(i, j, 0), dirtPrefab);
                     }
-                }
+                
             }
         }
     }

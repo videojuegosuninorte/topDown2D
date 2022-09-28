@@ -433,7 +433,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &911177761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 402963bff6d0fab4ca0b9e48e2412bdb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grassPrefab: {fileID: 2629275355585976599, guid: 54c9e2a0a0d182543a42b2e5f2e66e93, type: 3}
-  dirtPrefab: {fileID: 4672859015051751455, guid: b85b62b3d0ce79a44afe7b6b627ca296, type: 3}
+  grassPrefab: {fileID: 9067296887551591402, guid: 8da816ae701b853499a82b3897869053, type: 3}
+  dirtPrefab: {fileID: 5605764784102453388, guid: dec724f01987447449af4c24ce757670, type: 3}
 --- !u!4 &911177762
 Transform:
   m_ObjectHideFlags: 0
@@ -478,7 +478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1152821698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1246,7 +1246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!156049354 &2110757211
 Grid:
   m_ObjectHideFlags: 0
@@ -1291,7 +1291,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &2130680983
 Grid:
   m_ObjectHideFlags: 0
