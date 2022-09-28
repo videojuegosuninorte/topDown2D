@@ -37,8 +37,6 @@ public class GridGenerator : MonoBehaviour
         width = layout.GetLength(1);  // number of rows
         height = layout.GetLength(0); // number of columns
 
-        
-
         Debug.Log("width " + width + " height " + height);
 
         for (int i = 0; i < height; i++)

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5928439339279415327}
   - component: {fileID: 3027126325893632198}
+  - component: {fileID: -5152743832843653546}
   m_Layer: 0
   m_Name: Dirt
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-5152743832843653546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605764784102453388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1178b9abc2a123479435ed88d3324ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshPro: {fileID: 0}
+  Inner: {fileID: 0}
+  isWalkable: 0
+  x: 0
+  y: 0
+  gCost: 0
+  hCost: 0
+  fCost: 0
+  pastCell: {fileID: 0}
 --- !u!1 &7153785576434717697
 GameObject:
   m_ObjectHideFlags: 0
