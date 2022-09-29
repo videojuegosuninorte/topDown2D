@@ -9,17 +9,25 @@ public class Player : MonoBehaviour
     List<Cell> path;
     [SerializeField]
     private float moveSpeed = 2f;
-
     public Vector2 GetPosition => transform.position;
+    private bool startMoving = false;
 
     // Index of current waypoint from which Enemy walks
     // to the next one
     private int waypointIndex = 0;
 
-    // Update is called once per frame
+    
+
     void Update()
     {
-        Move();
+        if (startMoving)
+            Move();
+    }
+
+    public void starMoving(float speed)
+    {
+        startMoving = true;
+        moveSpeed = speed;
     }
 
     public void SetPath(List<Cell> path)
