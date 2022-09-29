@@ -124,7 +124,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 3
 --- !u!114 &4587635388746303466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   firePoint: {fileID: 2299624687026295009}
   bulletPrefab: {fileID: 4489260685753930308, guid: 2368e05c83ff94e579a141c41c3e773a, type: 3}
   bulletForce: 20
+  shootingInterval: 0.3
 --- !u!1 &4641202538481310363
 GameObject:
   m_ObjectHideFlags: 0
