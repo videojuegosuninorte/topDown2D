@@ -33,9 +33,18 @@ public class BoardManager : MonoBehaviour
 
         player.starMoving(grid, 2);
 
-        player = Instantiate(PlayerPrefab, new Vector2(0, 5), Quaternion.identity);
+        //player = Instantiate(PlayerPrefab, new Vector2(0, 5), Quaternion.identity);
 
-        player.starMoving(grid, 1);
+        //player.starMoving(grid, 1);
+
+        //player = Instantiate(PlayerPrefab, new Vector2(2, 5), Quaternion.identity);
+
+        //player.starMoving(grid, 3);
+
+        //player = Instantiate(PlayerPrefab, new Vector2(0, 5), Quaternion.identity);
+
+        //player.starMoving(grid, 4);
+
     }
 
     public void CellMouseClick(int x, int y)

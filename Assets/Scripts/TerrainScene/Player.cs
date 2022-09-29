@@ -46,6 +46,15 @@ public class Player : MonoBehaviour
         transform.position = new Vector2(0, 0);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "PowerSource")
+        {
+            Debug.Log("Made it");
+            path = null;
+        }
+    }
+
     private void Move()
     {
         // If player didn't reach last waypoint it can move
@@ -55,14 +64,14 @@ public class Player : MonoBehaviour
 
         if (waypointIndex <= path.Count - 1)
         {
-            Debug.Log("Moving to " + path[waypointIndex].transform.position.x.ToString() + " "
-                + path[waypointIndex].transform.position.y.ToString());
+            //Debug.Log("Moving to " + path[waypointIndex].transform.position.x.ToString() + " "
+            //    + path[waypointIndex].transform.position.y.ToString());
 
             if (changedCells) {
                 changedCells = false;
                 if (!grid.isWalkable((int)path[waypointIndex].transform.position.x, (int)path[waypointIndex].transform.position.y))
                 {
-                    Debug.Log("not walkable");
+                    //Debug.Log("not walkable");
                     //path = null;
                     calculatePath();
                     return;
