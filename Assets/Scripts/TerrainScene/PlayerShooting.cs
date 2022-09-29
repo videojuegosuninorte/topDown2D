@@ -10,6 +10,12 @@ public class PlayerShooting : MonoBehaviour
     public float shootingInterval = 0.3f;
     private float period = 0.0f;
     private bool startShotting = false;
+    private Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     //https://www.youtube.com/watch?v=LNLVOjbrQj4
 
@@ -18,7 +24,15 @@ public class PlayerShooting : MonoBehaviour
         if (collision.gameObject.tag == "PowerSource")
         {
             startShotting = true;
+            lookAtTarget();
         }
+    }
+
+    public void lookAtTarget()
+    {
+        Vector2 lookDir = PathManager.Instance.powerUnitLocation - rb.position;
+        float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90;
+        rb.rotation = angle;
     }
 
     void Update()

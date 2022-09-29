@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PowerSource
+  - Bullet
   layers:
   - Default
   - TransparentFX

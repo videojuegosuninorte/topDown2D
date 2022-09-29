@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PowerSource : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public int HP = 100;
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Hit");
+        if (collision.gameObject.tag == "Bullet")
+        {
+            Debug.Log("Hit by a bullet");
+            HP -= 20;
+            Destroy(collision.gameObject);
+            if (HP < 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 }

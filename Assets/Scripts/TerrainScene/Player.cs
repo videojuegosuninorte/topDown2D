@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     private bool startMoving = false;
     private Grid grid;
     private bool changedCells = false;
+    private Rigidbody2D rb;
 
     // Index of current waypoint from which Enemy walks
     // to the next one
@@ -25,6 +26,8 @@ public class Player : MonoBehaviour
         if (startMoving)
             Move();
     }
+
+
 
     public void starMoving(Grid grid, float speed)
     {
