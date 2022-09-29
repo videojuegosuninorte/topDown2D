@@ -11,6 +11,8 @@ public class Player : MonoBehaviour
     private float moveSpeed = 2f;
     public Vector2 GetPosition => transform.position;
     private bool startMoving = false;
+    private Grid grid;
+    private bool changedCells = false;
 
     // Index of current waypoint from which Enemy walks
     // to the next one
@@ -18,23 +20,25 @@ public class Player : MonoBehaviour
 
     
 
-    void Update()
+    void FixedUpdate()
     {
         if (startMoving)
             Move();
     }
 
-    public void starMoving(float speed)
+    public void starMoving(Grid grid, float speed)
     {
+        
+        this.grid = grid;
+        calculatePath();
         startMoving = true;
         moveSpeed = speed;
     }
 
-    public void SetPath(List<Cell> path)
+    private void calculatePath()
     {
-        //ResetPosition();
         waypointIndex = 0;
-        this.path = path;
+        path = PathManager.Instance.FindPath(grid, (int)GetPosition.x, (int)GetPosition.y);
     }
 
     public void ResetPosition()
@@ -51,7 +55,26 @@ public class Player : MonoBehaviour
 
         if (waypointIndex <= path.Count - 1)
         {
+            Debug.Log("Moving to " + path[waypointIndex].transform.position.x.ToString() + " "
+                + path[waypointIndex].transform.position.y.ToString());
 
+            if (changedCells) {
+                changedCells = false;
+                if (!grid.isWalkable((int)path[waypointIndex].transform.position.x, (int)path[waypointIndex].transform.position.y))
+                {
+                    Debug.Log("not walkable");
+                    //path = null;
+                    calculatePath();
+                    return;
+                } else
+                {
+                    grid.setBusyCell((int)path[waypointIndex - 1].transform.position.x,
+                        (int)path[waypointIndex - 1].transform.position.y,
+                        (int)path[waypointIndex].transform.position.x,
+                        (int)path[waypointIndex].transform.position.y);
+                }
+                
+            }
             // Move player from current waypoint to the next one
             // using MoveTowards method
             transform.position = Vector2.MoveTowards(transform.position,
@@ -64,6 +87,7 @@ public class Player : MonoBehaviour
             if (transform.position == path[waypointIndex].transform.position)
             {
                 waypointIndex += 1;
+                changedCells = true;
             }
         }
     }

@@ -63,6 +63,17 @@ public class Grid : ScriptableObject
         return width;
     }
 
+    public void setBusyCell(int initialX,int initialY, int newX, int newY)
+    {
+        gridArray[initialX, initialY].SetWalkable(true);
+        gridArray[newX, newY].SetWalkable(false);
+    }
+
+    public bool isWalkable(int x, int y)
+    {
+        return gridArray[x, y].isWalkable;
+    }
+
     public void CellMouseClick(Cell cell)
     {
         //cell.SetText("Click on cell "+cell.x+ " "+ cell.y);
