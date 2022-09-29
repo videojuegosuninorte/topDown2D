@@ -11,6 +11,7 @@ public class PathManager : MonoBehaviour
     public static PathManager Instance;
     private List<Cell> openList;
     private List<Cell> closedList;
+    public Vector2Int powerUnitLocation;
     private Grid grid;
 
     private void Awake()
@@ -18,6 +19,11 @@ public class PathManager : MonoBehaviour
         Instance = this;
     }
 
+
+    public List<Cell> FindPath(Grid grid, int startx, int starty)
+    {
+        return FindPath(grid, startx, starty, powerUnitLocation.x, powerUnitLocation.y);
+    }
 
     public List<Cell> FindPath(Grid grid, int startx, int starty, int endx, int endy)
     {

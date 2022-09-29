@@ -24,29 +24,26 @@ public class BoardManager : MonoBehaviour
     {
         grid = new Grid(11, 20, 1, CellPrefab, TerrainParant);
 
+        Instantiate(PowerSourcePrefab, new Vector2(5, 19), Quaternion.identity);
+
+        PathManager.Instance.powerUnitLocation = new Vector2Int(5, 19);
+
+
         player = Instantiate(PlayerPrefab, new Vector2(0, 0), Quaternion.identity);
 
-        List<Cell> path = PathManager.Instance.FindPath(grid, (int)player.GetPosition.x, (int)player.GetPosition.y, 5, 19);
+        List<Cell> path = PathManager.Instance.FindPath(grid, (int)player.GetPosition.x, (int)player.GetPosition.y);
 
         player.SetPath(path);
 
         player.starMoving(2);
 
-        player = Instantiate(PlayerPrefab, new Vector2(5, 0), Quaternion.identity);
+        player = Instantiate(PlayerPrefab, new Vector2(0, 5), Quaternion.identity);
 
-        path = PathManager.Instance.FindPath(grid, (int)player.GetPosition.x, (int)player.GetPosition.y, 5, 19);
+        path = PathManager.Instance.FindPath(grid, (int)player.GetPosition.x, (int)player.GetPosition.y);
 
         player.SetPath(path);
 
         player.starMoving(1);
-
-
-
-        Instantiate(PowerSourcePrefab, new Vector2(5, 19), Quaternion.identity);
-
-        
-
-        
     }
 
     public void CellMouseClick(int x, int y)
