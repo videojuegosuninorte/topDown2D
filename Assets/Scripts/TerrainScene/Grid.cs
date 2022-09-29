@@ -36,13 +36,13 @@ public class Grid : ScriptableObject
             {
                 var p = new Vector2(i, j) * cellSize;
                 cell = Instantiate(cellPrefab, p, Quaternion.identity);
-                cell.transform.SetParent(parent.transform);
+                //cell.transform.SetParent(parent.transform);
                 cell.Init(this, (int)p.x, (int)p.y, true);
 
-                if (Random.Range(0, 10) <= 2)
-                    cell.SetWalkable(false);
-                else
-                    cell.SetColor(Color.blue);
+                //if (Random.Range(0, 10) <= 2)
+                //    cell.SetWalkable(false);
+                //else
+                //    cell.SetColor(Color.blue);
 
                 gridArray[i, j] = cell;
             }
@@ -50,7 +50,7 @@ public class Grid : ScriptableObject
 
         var center = new Vector2((float)height / 2 - 0.5f, (float)width / 2 - 0.5f);
 
-        Camera.main.transform.position = new Vector3(center.x, center.y, -5);
+        Camera.main.transform.position = new Vector3(center.y, center.x, -5);
     }
 
     internal int GetHeight()
