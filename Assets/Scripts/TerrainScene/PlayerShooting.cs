@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerShooting : MonoBehaviour
 {
     public Transform firePoint;
-    public GameObject bulletPrefab;
+    public Bullet bulletPrefab;
     public float bulletForce = 20f;
     public float shootingInterval = 0.3f;
     private float period = 0.0f;
@@ -50,7 +50,7 @@ public class PlayerShooting : MonoBehaviour
 
     private void shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 }

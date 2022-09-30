@@ -14,7 +14,7 @@ public class Grid : ScriptableObject
     private Cell[,] gridArray;
 
 
-    public Grid(int width, int height, int cellSize, Cell cellPrefab, GameObject parent)
+    public Grid(int width, int height, int cellSize, Cell cellPrefab)
     {
         
         this.width = width;
@@ -22,13 +22,14 @@ public class Grid : ScriptableObject
         this.cellSize = cellSize;
         this.cellPrefab = cellPrefab;
 
-        generateBoard(parent);
+        generateBoard();
     }
 
-    private void generateBoard(GameObject parent)
+    private void generateBoard()
     {
         Cell cell;
         gridArray = new Cell[width, height];
+        GameObject parent = new GameObject("TerrainParent");
 
         for (int i = 0; i < width; i++)
         {
@@ -38,6 +39,8 @@ public class Grid : ScriptableObject
                 cell = Instantiate(cellPrefab, p, Quaternion.identity);
                 //cell.transform.SetParent(parent.transform);
                 cell.Init(this, (int)p.x, (int)p.y, true);
+
+                cell.transform.SetParent(parent.transform);
 
                 //if (Random.Range(0, 10) <= 2)
                 //    cell.SetWalkable(false);
@@ -73,14 +76,6 @@ public class Grid : ScriptableObject
     {
         return gridArray[x, y].isWalkable;
     }
-
-    public void CellMouseClick(Cell cell)
-    {
-        //cell.SetText("Click on cell "+cell.x+ " "+ cell.y);
-        BoardManager.Instance.CellMouseClick(cell.x, cell.y);
-    }
-
-    
 
     public Cell GetGridObject(int x, int y)
     {

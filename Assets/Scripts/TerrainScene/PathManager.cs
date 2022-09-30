@@ -22,7 +22,7 @@ public class PathManager : MonoBehaviour
 
     public List<Cell> FindPath(Grid grid, int startx, int starty)
     {
-        Debug.Log("Find path from " + startx + " " + starty);
+        //Debug.Log("Find path from " + startx + " " + starty);
         return FindPath(grid, startx, starty, powerUnitLocation.x, powerUnitLocation.y);
     }
 
@@ -59,7 +59,7 @@ public class PathManager : MonoBehaviour
             if (currentNode == endCell)
             {
                 // Reached final node
-                Debug.Log("Reach the end");
+                //Debug.Log("Reach the end");
                 return CalculatePath(endCell);
             }
 
@@ -91,7 +91,7 @@ public class PathManager : MonoBehaviour
                 //PathfindingDebugStepVisual.Instance.TakeSnapshot(grid, currentNode, openList, closedList);
             }
         }
-        Debug.Log("Did not reach the end");
+        //Debug.Log("Did not reach the end");
         return null;
     }
 
@@ -110,7 +110,7 @@ public class PathManager : MonoBehaviour
         foreach (Cell c in path)
         {
             c.SetColor(Color.green);
-            Debug.Log(c.ToString());
+            //Debug.Log(c.ToString());
         }
         return path;
     }

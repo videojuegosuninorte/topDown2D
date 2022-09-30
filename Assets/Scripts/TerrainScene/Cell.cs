@@ -35,17 +35,6 @@ public class Cell : MonoBehaviour
         //Inner.GetComponent<SpriteRenderer>().color = color;
     }
 
-    private void OnMouseDown()
-    {
-        
-
-        if (Input.GetMouseButton(0))
-        {
-           
-            grid.CellMouseClick(this);
-        } 
-    }
-
     internal void CalculateFCost()
     {
         fCost = gCost + hCost;
